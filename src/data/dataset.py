@@ -104,7 +104,3 @@ def texts_cleaner(text):
     text = text.lower()
 
     return text
-
-
-logging.basicConfig(level=logging.INFO)
-dataset = DrugSideEffect("/home/kave/PycharmProjects/yugi-drug/data/myresult1 (1).xml")

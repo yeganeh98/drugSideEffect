@@ -6,7 +6,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 class DrugGRU(nn.Module):
-    def __init__(self, hidden_size, vocab_size, dropout_p=0.1):
+    def __init__(self, hidden_size, vocab_size, dropout_p=0.2):
         super(DrugGRU, self).__init__()
         self.hidden_size = hidden_size
         self.vocab_size = vocab_size
@@ -31,7 +31,7 @@ class DrugGRU(nn.Module):
         # compute loss
         loss = F.binary_cross_entropy(logits, target)
 
-        return loss
+        return loss, logits
 
     def initHidden(self):
         return torch.zeros(1, 1, self.hidden_size, device=device)
